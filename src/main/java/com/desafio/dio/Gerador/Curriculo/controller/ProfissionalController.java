@@ -1,0 +1,44 @@
+package com.desafio.dio.Gerador.Curriculo.controller;
+
+
+import com.desafio.dio.Gerador.Curriculo.model.Profissional;
+import com.desafio.dio.Gerador.Curriculo.service.ProfissionalService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/profissional")
+public class ProfissionalController {
+
+    @Autowired
+    ProfissionalService service;
+
+    @GetMapping("/listar")
+    public ResponseEntity<?> listar() {
+        return new ResponseEntity<>(service.listar(), HttpStatus.OK);
+    }
+
+    @GetMapping("/search/{id}")
+    public ResponseEntity<?> selecionarId(@PathVariable Long id) {
+        return new ResponseEntity<>(service.search(id), HttpStatus.OK);
+    }
+    @PostMapping("/novo")
+    public ResponseEntity<?> salvar(@RequestBody Profissional profissional) {
+        return new ResponseEntity<>(service.novoProfissional(profissional), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/alterar/{id}")
+    public ResponseEntity<?> alterar(@PathVariable Long id, @RequestBody Profissional profissional) {
+        return new ResponseEntity<>(service.atualizar(id, profissional), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/excluir/{id}")
+    public ResponseEntity<?> excluir(@PathVariable Long id) {
+        service.excluir(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+}

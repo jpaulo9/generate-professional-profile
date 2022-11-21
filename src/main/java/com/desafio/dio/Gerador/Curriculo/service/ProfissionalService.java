@@ -5,7 +5,6 @@ import com.desafio.dio.Gerador.Curriculo.model.Endereco;
 import com.desafio.dio.Gerador.Curriculo.model.Profissional;
 import com.desafio.dio.Gerador.Curriculo.repository.EnderecoRepository;
 import com.desafio.dio.Gerador.Curriculo.repository.ProfissionalRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -60,6 +59,7 @@ public class ProfissionalService {
 
         check(!oldProfissional.isPresent(), HttpStatus.NOT_FOUND, "Profissional não encontrado, informe um id válido!");
 
-        return repository.save(newProfissional);
+        return novoProfissional(newProfissional);
     }
+
 }

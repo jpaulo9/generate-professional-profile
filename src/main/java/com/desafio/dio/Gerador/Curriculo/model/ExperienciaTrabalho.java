@@ -21,8 +21,8 @@ public class ExperienciaTrabalho {
     private Long id;
 
     private String empresa;
-    private int mesInicio;
-    private int mesFinal;
+    private String mesAnoInicio;
+    private String mesAnoFinal;
     private String cargo;
     private String atividadesDesenvolvidas;
 

@@ -1,6 +1,7 @@
 package com.desafio.dio.Gerador.Curriculo.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,7 +27,25 @@ public class Profissional {
     private int idade;
 
     @ManyToOne
+    @JoinColumn(name = "cep")
+    @JsonIgnoreProperties("profissional")
     private Endereco endereco;
+
+    @ManyToOne
+    @JoinColumn(name = "formacao_academica_id")
+    @JsonIgnoreProperties("profissional")
+    private FormacaoAcademica formacaoAcademica;
+
+    @ManyToOne
+    @JoinColumn(name = "curso_extra_curricular_id")
+    @JsonIgnoreProperties("profissional")
+    private CursosExtraCurricular cursosExtraCurricular;
+
+    @ManyToOne
+    @JoinColumn(name = "experiencia_trabalho_id")
+    @JsonIgnoreProperties("profissional")
+    private ExperienciaTrabalho experienciaTrabalho;
+
 
 
 

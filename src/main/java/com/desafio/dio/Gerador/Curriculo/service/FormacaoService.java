@@ -2,7 +2,6 @@ package com.desafio.dio.Gerador.Curriculo.service;
 
 
 import com.desafio.dio.Gerador.Curriculo.model.FormacaoAcademica;
-import com.desafio.dio.Gerador.Curriculo.model.Profissional;
 import com.desafio.dio.Gerador.Curriculo.repository.FormacaoAcademicaRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
